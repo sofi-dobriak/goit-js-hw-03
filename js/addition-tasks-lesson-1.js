@@ -228,7 +228,6 @@ console.log('================== СЕРЕДНІ ЗАДАЧІ ==================')
 //Task 1
 // Напиши функцію яка приймає два масиви (arr1, arr2), та повертає новий масив де будуть лише ті елементи які зустрічаються і в arr1 і arr2.
 
-console.log(' ');
 console.log('Task #1');
 
 const firstArray = [1, 2, 3, 4, 5, 6];
@@ -404,3 +403,170 @@ function createArrayWithoutFive(start, end) {
 }
 
 console.log(createArrayWithoutFive(12, 20));
+
+//================== СКЛАДНІ ЗАДАЧІ ==================
+
+console.log(' ');
+console.log('================== СКЛАДНІ ЗАДАЧІ ==================');
+
+//Task 1
+// Напиши функцію, яка приймає массив чисел і повертає новий масив, де всі парні числа переміщені в початок, а всі непарні - в кінець.
+
+const arrayTaskOne = [12, 45, 67, 23, 350, 89, 5, 34, 56, 78, 91, 10];
+
+function getFilterArray(array) {
+    const newFilterArray = [];
+
+    for (const item of array) {
+        if (item % 2 === 0) {
+            newFilterArray.unshift(item);
+        } else {
+            newFilterArray.push(item);
+        }
+    }
+
+    return newFilterArray;
+}
+
+console.log(getFilterArray(arrayTaskOne));
+
+//Task 2
+// Напиши функцію, яка приймає массив чисел і повертає новий массив, де кожен елемент є сумою усіх попередніх елементів.
+
+console.log(' ');
+console.log('Task #2');
+
+const arrayTaskTwo = [12, 45, 67, 23, 350, 89, 5, 34, 56, 78, 91, 10];
+
+function getSumArrayItem(array) {
+    const sumArrayItem = [];
+
+    let sum = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+        sumArrayItem.push(sum);
+    }
+
+    return sumArrayItem;
+}
+
+console.log(getSumArrayItem(arrayTaskTwo));
+
+//Task 3
+// Напиши функцію, яка приймає массив чисел і повертає новий массив, що містить лише унікальні числа.
+
+console.log(' ');
+console.log('Task #3');
+
+const arrayTaskUnique = [12, 45, 67, 12, 23, 45, 89, 5, 34, 56, 89, 10];
+
+function getUnuqieDigits(array) {
+    const uniqueDigitArray = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (!uniqueDigitArray.includes(array[i])) {
+            uniqueDigitArray.push(array[i]);
+        }
+    }
+
+    return uniqueDigitArray;
+}
+
+console.log(getUnuqieDigits(arrayTaskUnique));
+
+//Task 4
+// Напиши функцію, яка приймає два масиви і повертає об'єднаний массив без дублювання елементів.
+
+console.log(' ');
+console.log('Task #4');
+
+const arrayOne = [12, 45, 67, 23, 89, 5, 34, 56];
+const arrayTwo = [78, 45, 23, 91, 10, 34, 67, 100];
+
+function getConcatArray(arr1, arr2) {
+    const concatArray = [];
+
+    for (const item of arr1) {
+        if (!concatArray.includes(item)) {
+            concatArray.push(item);
+        }
+    }
+
+    for (const item of arr2) {
+        if (!concatArray.includes(item)) {
+            concatArray.push(item);
+        }
+    }
+
+    return concatArray;
+}
+
+console.log(getConcatArray(arrayOne, arrayTwo));
+
+//Task 5
+// Напиши функцію, яка приймає массив чисел і повертає новий массив, де кожен елемент є середньоарифметичним всіх сусідніх елементів.
+
+console.log(' ');
+console.log('Task #5');
+
+const arrayFive = [12, 45, 67, 23, 89, 5, 34, 56];
+
+function getAverageArray(array) {
+    const averageArray = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (i === 0) {
+            averageArray.push(array[i + 1]);
+        } else if (i === array.length - 1) {
+            averageArray.push(array[i - 1]);
+        } else {
+            averageArray.push((array[i - 1] + array[i + 1]) / 2);
+        }
+    }
+
+    return averageArray;
+}
+
+console.log(getAverageArray(arrayFive));
+
+//Task 6
+// Напиши функцію, яка приймає массив чисел і повертає новий массив, де елементи відсортовані в порядку збільшення або зменшення.
+
+console.log(' ');
+console.log('Task #6');
+
+const arraySix = [12, 45, 67, 23, 89, 5, 34, 56];
+
+function getAscendingArray(array, order = 'asc') {
+    return array.toSorted((a, b) => (order === 'asc' ? a - b : b - a));
+
+    // return array.slice().sort((a, b) => (order === 'asc' ? a - b : b - a)); //це для старіших браузерів
+}
+
+console.log(getAscendingArray(arraySix, 'asc'));
+
+//Task 7
+// Напиши функцію, яка приймає массив рядочків та сортує їх за довжиною елементів.
+
+console.log(' ');
+console.log('Task #7');
+
+const stringArray = [
+    'apple',
+    'banana',
+    'cherry',
+    'date',
+    'elderberry',
+    'fig',
+    'grape',
+    'honeydew',
+    'kiwi',
+    'lemon',
+];
+
+function getFilterLengthArray(array) {
+    return array.sort((a, b) => a.length - b.length);
+}
+
+console.log(getFilterLengthArray(stringArray));
